@@ -413,20 +413,12 @@ public class UtilEnt
       flyingEntities.put(p, new ArrayList());
     }
 
-    WitherSkull skull = (WitherSkull)l.getWorld().spawn(
-      l.add(0.5D, 0.0D, 0.5D), WitherSkull.class);
     Bat b = (Bat)l.getWorld().spawn(
       l, Bat.class);
-    skull.setDirection(new Vector(0, 0, 0));
-    skull.setVelocity(new Vector(0, 0, 0));
     b.setCustomName(text);
     b.setMetadata("nodamagetext", new FixedMetadataValue(
       Core.getInstance(), "nodamagetext"));
-    skull.setMetadata("nodamagetext", new FixedMetadataValue(
-      Core.getInstance(), "nodamagetext"));
-
-    skull.setPassenger(b);
-    ((ArrayList)flyingEntities.get(p)).add(skull);
+    UtilEntity.setNoAI(b, true);
     ((ArrayList)flyingEntities.get(p)).add(b);
   }
 
