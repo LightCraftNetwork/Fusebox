@@ -22,7 +22,8 @@ public class UtilPacket {
 			Object iblock = NMSUtils.getMethod(world, "getType", bp).invoke(ws, bp1);
 			Class<?> iblockd = NMSUtils.getNMSClass("IBlockData");
 			Object block = iblockd.getMethod("getBlock").invoke(iblock);
-			Object packet = ppoba.getConstructor(bp, bl, int.class, int.class).newInstance(bp1, block, 1, 54);
+			Object packet = ppoba.getConstructor(bp, bl, int.class, int.class).newInstance(bp1, block, 1, 1);
+			sendPacket(player, packet);
 		    for (Entity e : player.getNearbyEntities(radius, radius, radius)) {
 		      if(e instanceof Player){
 		    	  sendPacket(player, packet);
