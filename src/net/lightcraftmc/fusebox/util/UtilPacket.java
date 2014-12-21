@@ -7,7 +7,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-public class UtilParticle {
+public class UtilPacket {
 
 	public static void PacketPlayOutOpenChest(Player player, Location location, int radius){
 		try{
