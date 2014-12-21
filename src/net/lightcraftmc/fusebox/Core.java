@@ -1,14 +1,12 @@
 package net.lightcraftmc.fusebox;
 
-import net.lightcraftmc.fusebox.player.PlayerManager;
+import net.lightcraftmc.fusebox.menu.MenuListener;
 import net.lightcraftmc.fusebox.util.effects.EffectManager;
 import net.lightcraftmc.fusebox.util.extra.ExtraManager;
 import net.lightcraftmc.fusebox.util.particle.ParticleManager;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import com.arrayprolc.menu.MenuListener;
 
 public class Core extends JavaPlugin{
 
@@ -21,7 +19,6 @@ public class Core extends JavaPlugin{
     }
     
     private void init(){
-    	PlayerManager.getInstance();
     	EffectManager.registerEvents(this);
     	ExtraManager.registerEvents(this);
 	    ParticleManager.registerEvents(this);
