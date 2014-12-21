@@ -2,14 +2,19 @@ package net.lightcraftmc.fusebox.player;
 
 import java.util.UUID;
 
+import net.lightcraftmc.fusebox.Core;
+import net.lightcraftmc.fusebox.configuration.Configuration;
+
 import org.bukkit.entity.Player;
 
 public class Players {
 
 	private String uuid;
+	private Configuration config;
 	
 	public Players(Player player){
 		this.uuid = player.getUniqueId().toString();
+		config = new Configuration(Core.getInstance(), "/players/" + uuid + ".yml");
 	}
 	
 	public String getUUIDString(){
@@ -18,6 +23,10 @@ public class Players {
 	
 	public UUID getUUID(){
 		return UUID.fromString(uuid);
+	}
+	
+	public Configuration getConfig(){
+		return config;
 	}
 	
 }
