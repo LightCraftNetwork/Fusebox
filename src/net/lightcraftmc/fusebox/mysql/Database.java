@@ -12,7 +12,7 @@ public abstract class Database {
     protected Plugin plugin;
 
     protected Database(Plugin plugin) {
-        this.plugin = Core.getInstance();
+        this.plugin = plugin;
     }
 
     public abstract Connection openConnection();
