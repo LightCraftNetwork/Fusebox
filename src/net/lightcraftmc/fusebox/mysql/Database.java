@@ -1,7 +1,5 @@
 package net.lightcraftmc.fusebox.mysql;
 
-import net.lightcraftmc.fusebox.Core;
-
 import org.bukkit.plugin.Plugin;
 
 import java.sql.Connection;
