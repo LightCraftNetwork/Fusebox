@@ -14,8 +14,7 @@ public class UtilityMath
 
   public static int getRandomNumberBetween(int min, int max)
   {
-    Random foo = new Random();
-    int randomNumber = foo.nextInt(max - min) + min;
+    int randomNumber = random.nextInt(max - min) + min;
     if (randomNumber == min)
     {
       return min + 1;

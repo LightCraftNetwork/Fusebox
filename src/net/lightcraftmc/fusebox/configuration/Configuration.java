@@ -1,5 +1,7 @@
 package net.lightcraftmc.fusebox.configuration;
 
+import net.lightcraftmc.fusebox.Core;
+
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,7 +21,7 @@ public class Configuration {
     private boolean changed = false;
 
     public Configuration(JavaPlugin plugin, String filename) {
-        this.plugin = plugin;
+        this.plugin = Core.getInstance();
         this.fname = filename;
     }
 

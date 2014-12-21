@@ -1,5 +1,7 @@
 package net.lightcraftmc.fusebox.mysql;
 
+import net.lightcraftmc.fusebox.Core;
+
 import org.bukkit.plugin.Plugin;
 
 import java.sql.Connection;
@@ -10,7 +12,7 @@ public abstract class Database {
     protected Plugin plugin;
 
     protected Database(Plugin plugin) {
-        this.plugin = plugin;
+        this.plugin = Core.getInstance();
     }
 
     public abstract Connection openConnection();
