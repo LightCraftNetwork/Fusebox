@@ -48,8 +48,7 @@ public class MySQL extends Database{
         this.database = file.GetConfig().getString("MySQL.database");
     }
 
-    public MySQL(Plugin plugin, String hostname, String port, String database, String username, String password)
-    {
+    public MySQL(Plugin plugin, String hostname, String port, String database, String username, String password) {
         super(plugin);
         this.hostname = hostname;
         this.port = port;
@@ -59,53 +58,43 @@ public class MySQL extends Database{
         this.connection = null;
     }
 
-    public Connection openConnection()
-    {
-        try
-        {
+    public Connection openConnection() {
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             this.connection = DriverManager.getConnection("jdbc:mysql://" + this.hostname + ":" + this.port + "/" + this.database, this.user, this.password);
         }
-        catch (SQLException e)
-        {
+        catch (SQLException e) {
             System.out.print(e.getMessage());
             this.plugin.getLogger().log(Level.SEVERE, "Can't connect to MySQL server");
             closeConnection();
         }
-        catch (ClassNotFoundException e)
-        {
+        catch (ClassNotFoundException e) {
             this.plugin.getLogger().log(Level.SEVERE, "JDBC Driver not found!");
         }
         return this.connection;
     }
 
-    public boolean checkConnection()
-    {
+    public boolean checkConnection() {
         return this.connection != null;
     }
 
-    public Connection getConnection()
-    {
+    public Connection getConnection() {
         return this.connection;
     }
 
-    public void closeConnection()
-    {
+    public void closeConnection() {
         if (this.connection != null) {
-            try
-            {
+            try {
                 this.connection.close();
             }
-            catch (SQLException e)
-            {
+            catch (SQLException e) {
                 this.plugin.getLogger().log(Level.SEVERE, "Error closing the MySQL Connection!");
                 e.printStackTrace();
             }
         }
     }
 
-    public ResultSet querySQL(String query)
-    {
+    public ResultSet querySQL(String query) {
         Connection c = null;
         if (checkConnection()) {
             c = getConnection();
@@ -113,28 +102,23 @@ public class MySQL extends Database{
             c = openConnection();
         }
         Statement s = null;
-        try
-        {
+        try {
             s = c.createStatement();
         }
-        catch (SQLException e1)
-        {
+        catch (SQLException e1) {
             e1.printStackTrace();
         }
         ResultSet ret = null;
-        try
-        {
+        try {
             ret = s.executeQuery(query);
         }
-        catch (SQLException e)
-        {
+        catch (SQLException e) {
             e.printStackTrace();
         }
         return ret;
     }
 
-    public void updateSQL(String update)
-    {
+    public void updateSQL(String update) {
         Connection c = null;
         if (checkConnection()) {
             c = getConnection();
@@ -142,13 +126,11 @@ public class MySQL extends Database{
             c = openConnection();
         }
         Statement s = null;
-        try
-        {
+        try {
             s = c.createStatement();
             s.executeUpdate(update);
         }
-        catch (SQLException e1)
-        {
+        catch (SQLException e1) {
             e1.printStackTrace();
         }
     }
