@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class UtilPacket {
 
-	public static void PacketPlayOutOpenChest(Player player, Location location, int radius){
+	public static void sendPacketPlayOutOpenChest(Player player, Location location, int radius){
 		try{
 			Class<?> world = NMSUtils.getNMSClass("World");
 			Object ws = NMSUtils.getHandle(location.getWorld());
