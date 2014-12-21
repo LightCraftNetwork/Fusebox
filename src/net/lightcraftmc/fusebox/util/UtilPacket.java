@@ -16,10 +16,12 @@ public class UtilPacket {
 			
 			Class<?> bp = NMSUtils.getNMSClass("BlockPosition");
 			Object bp1 = bp.getConstructor(int.class, int.class, int.class).newInstance(location.getBlockX(), location.getBlockY(), location.getBlockZ());
-			Object block = NMSUtils.getMethod(world, "getType", bp).invoke(ws, bp1);
 			
 			Class<?> ppoba = NMSUtils.getNMSClass("PacketPlayOutBlockAction");
 			Class<?> bl = NMSUtils.getNMSClass("Block");
+			Object iblock = NMSUtils.getMethod(world, "getType", bp).invoke(ws, bp1);
+			Class<?> iblockd = NMSUtils.getNMSClass("IBlockData");
+			Object block = iblockd.getMethod("getBlock").invoke(iblock);
 			Object packet = ppoba.getConstructor(bp, bl, int.class, int.class).newInstance(bp1, block, 1, 54);
 		    for (Entity e : player.getNearbyEntities(radius, radius, radius)) {
 		      if(e instanceof Player){
