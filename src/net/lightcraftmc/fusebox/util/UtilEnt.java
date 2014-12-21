@@ -416,7 +416,7 @@ implements Listener
 				l.getX() + 0.5, 
 				l.getY(), 
 				l.getZ() + 0.5);
-		eas.setInvisible`(true);
+		eas.setInvisible(true);
 		eas.setSmall(true);
 		eas.setArms(false);
 		eas.setGravity(true);
