@@ -1,4 +1,4 @@
-package me.elliottolson.fusebox.util;
+package net.lightcraft.fusebox.configuration;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

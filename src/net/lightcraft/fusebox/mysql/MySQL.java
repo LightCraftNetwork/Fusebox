@@ -1,4 +1,6 @@
-package me.elliottolson.fusebox.util;
+package net.lightcraft.fusebox.mysql;
+
+import net.lightcraft.fusebox.configuration.Configuration;
 
 import org.bukkit.plugin.Plugin;
 
