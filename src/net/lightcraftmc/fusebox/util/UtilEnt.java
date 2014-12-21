@@ -416,7 +416,7 @@ implements Listener
 				l.getX() + 0.5, 
 				l.getY(), 
 				l.getZ() + 0.5);
-		eas.setInvisible(true);
+		eas.setInvisible`(true);
 		eas.setSmall(true);
 		eas.setArms(false);
 		eas.setGravity(true);
@@ -440,7 +440,7 @@ implements Listener
 		ei.setPassengerOf(eas);
 		ei.getBukkitEntity().setMetadata("unpickable", new FixedMetadataValue(
 				Core.getInstance(), "unpickable"));
-		((ArrayList)flyingEntities.get(p)).add(eas);
+		((ArrayList)flyingEntities.get(p)).add(eas.getBukkitEntity());
 		((ArrayList)flyingEntities.get(p)).add(ei.getBukkitEntity());
 	}
 
