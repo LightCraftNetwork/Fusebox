@@ -2,6 +2,8 @@ package net.lightcraftmc.fusebox;
 
 import net.lightcraftmc.fusebox.anticheat.AntiCheat;
 import net.lightcraftmc.fusebox.build.listener.BuildSettings;
+import net.lightcraftmc.fusebox.commands.Commands;
+import net.lightcraftmc.fusebox.commands.ExampleCommand;
 import net.lightcraftmc.fusebox.commands.ToolCommand;
 import net.lightcraftmc.fusebox.menu.MenuListener;
 import net.lightcraftmc.fusebox.player.PlayerManager;
@@ -33,6 +35,9 @@ public class Core extends JavaPlugin{
 	    AntiCheat.init();
 	    ToolManager.getInstance();
     	new ToolCommand("tools").register();
+
+        //Setup Commands
+        setupCommands();
     }
     
     public static Core getInstance(){
@@ -44,5 +49,11 @@ public class Core extends JavaPlugin{
     public void onDisable(){
     	main = null;
     }
+
+
+    public void setupCommands(){
+        Commands.getCommandList().add(new ExampleCommand());
+    }
+
 
 }

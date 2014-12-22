@@ -16,6 +16,13 @@ import java.util.List;
  */
 public abstract class Command {
 
+
+    /*
+    *
+    * You will also need to add the base command as usual in your plugin.yml.
+    *
+    */
+
     protected String name;
     protected String usage;
     protected String usagePrior;
