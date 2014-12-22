@@ -1,14 +1,9 @@
 package net.lightcraftmc.fusebox.build.listener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.UUID;
 
 import org.bukkit.GameMode;
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
-import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -16,7 +11,6 @@ import org.bukkit.event.block.BlockFadeEvent;
 import org.bukkit.event.block.BlockPhysicsEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.block.LeavesDecayEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
 
 public class BuildSettings implements Listener {
 
