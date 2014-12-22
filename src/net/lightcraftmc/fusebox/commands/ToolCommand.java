@@ -1,14 +1,9 @@
 package net.lightcraftmc.fusebox.commands;
 
+import net.lightcraftmc.fusebox.util.AbstractCommand;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-
-import net.lightcraftmc.fusebox.tools.SelectionTool;
-import net.lightcraftmc.fusebox.tools.Tool;
-import net.lightcraftmc.fusebox.tools.ToolManager;
-import net.lightcraftmc.fusebox.util.AbstractCommand;
 
 public class ToolCommand extends AbstractCommand {
 
@@ -25,7 +20,7 @@ public class ToolCommand extends AbstractCommand {
 			s.sendMessage(ChatColor.AQUA + "/tools selection");
 			return true;
 		}else{
-			switch(args[0].toLowerCase()){
+			/*switch(args[0].toLowerCase()){
 			case "selection":{
 				if(!(s instanceof Player)){
 					s.sendMessage("Command must be run by player");
@@ -44,8 +39,9 @@ public class ToolCommand extends AbstractCommand {
 				s.sendMessage(ChatColor.RED + "Unknown argument '" + args[0] + "', for command /" + cmd.getLabel() + "");
 				return false;
 			}
-			}
+			}*/
 		}
+        return false;
 	}
 
 }
