@@ -398,7 +398,7 @@ implements Listener
 				return false;
 			}
 		};
-		ei.pickupDelay = 20;
+		ei.pickupDelay = 200000;
 		((CraftWorld)l.getWorld()).getHandle().addEntity(ei);
 
 		skull.setPassenger(ei.getBukkitEntity());
@@ -434,7 +434,7 @@ implements Listener
 				return false;
 			}
 		};
-		ei.pickupDelay = 20;
+		ei.pickupDelay = 200000;
 		((CraftWorld)l.getWorld()).getHandle().addEntity(eas);
 		((CraftWorld)l.getWorld()).getHandle().addEntity(ei);
 		ei.setPassengerOf(eas);
