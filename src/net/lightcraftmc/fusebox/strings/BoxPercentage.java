@@ -4,7 +4,7 @@ public class BoxPercentage {
 	public static String generateBoxPercentage(double input){
 		int working = (int) Math.round(input/10);
 		String s = "";
-		for(int i = 0; i < working; i++) s = s + "▉";
+		for(int i = 0; i < working; i++) s = s + "■";
 		String color = "";
 		if(working >= 5){
 			color = "§a"; 
@@ -17,7 +17,7 @@ public class BoxPercentage {
 		 }
 		s = color + s;
 		int remainder = 10-working;
-		for(int i = 0; i < remainder; i++) s = s + "§7▉";
+		for(int i = 0; i < remainder; i++) s = s + "§7■";
 		return s;
 	}
 }
