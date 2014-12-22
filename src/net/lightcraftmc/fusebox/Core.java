@@ -2,7 +2,9 @@ package net.lightcraftmc.fusebox;
 
 import net.lightcraftmc.fusebox.anticheat.AntiCheat;
 import net.lightcraftmc.fusebox.build.listener.BuildSettings;
+import net.lightcraftmc.fusebox.commands.ToolCommand;
 import net.lightcraftmc.fusebox.menu.MenuListener;
+import net.lightcraftmc.fusebox.tools.ToolManager;
 import net.lightcraftmc.fusebox.util.effects.EffectManager;
 import net.lightcraftmc.fusebox.util.extra.ExtraManager;
 import net.lightcraftmc.fusebox.util.particle.ParticleManager;
@@ -27,6 +29,8 @@ public class Core extends JavaPlugin{
 	    Bukkit.getServer().getPluginManager().registerEvents(new MenuListener(), this);
 	    Bukkit.getServer().getPluginManager().registerEvents(new BuildSettings(), this);
 	    AntiCheat.init();
+	    ToolManager.getInstance();
+    	new ToolCommand("tools").register();
     }
     
     public static Core getInstance(){

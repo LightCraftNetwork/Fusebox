@@ -4,6 +4,9 @@ import org.bukkit.Material;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerKickEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -32,5 +35,8 @@ public abstract class Tool {
 	public abstract void onDrop(PlayerDropItemEvent event);
 	public abstract void onInventoryClickItem(InventoryClickEvent event);
 	public abstract void onInventoryClickCursor(InventoryClickEvent event);
+	public abstract void onPlayerKick(PlayerKickEvent event);
+	public abstract void onPlayerQuit(PlayerQuitEvent event);
+	public abstract void onPlayerJoin(PlayerJoinEvent event);
 	
 }
