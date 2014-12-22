@@ -35,11 +35,11 @@ public class SelectionTool extends Tool{
 	@Override
 	public void onClick(PlayerInteractEvent event) {
 		event.setCancelled(true);
-		if(event.getAction().equals(Action.RIGHT_CLICK_AIR)||event.getAction().equals(Action.RIGHT_CLICK_BLOCK)&&event.getClickedBlock()!=null){
+		if(event.getAction().equals(Action.RIGHT_CLICK_AIR)||event.getAction().equals(Action.RIGHT_CLICK_BLOCK)&&event.getClickedBlock()!=null&&event.getClickedBlock().getLocation()!=null){
 			location2.put(event.getPlayer().getUniqueId().toString(), UtilLocation.locationToString(event.getClickedBlock().getLocation()));
 			event.getPlayer().sendMessage("Location 2 set");
 			return;
-		} else if(event.getAction().equals(Action.LEFT_CLICK_AIR)||event.getAction().equals(Action.LEFT_CLICK_BLOCK)&&event.getClickedBlock()!=null){
+		} else if(event.getAction().equals(Action.LEFT_CLICK_AIR)||event.getAction().equals(Action.LEFT_CLICK_BLOCK)&&event.getClickedBlock()!=null&&event.getClickedBlock().getLocation()!=null){
 			location1.put(event.getPlayer().getUniqueId().toString(), UtilLocation.locationToString(event.getClickedBlock().getLocation()));
 			event.getPlayer().sendMessage("Location 1 set");
 			return;
