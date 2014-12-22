@@ -4,6 +4,7 @@ import net.lightcraftmc.fusebox.anticheat.AntiCheat;
 import net.lightcraftmc.fusebox.build.listener.BuildSettings;
 import net.lightcraftmc.fusebox.commands.ToolCommand;
 import net.lightcraftmc.fusebox.menu.MenuListener;
+import net.lightcraftmc.fusebox.player.PlayerManager;
 import net.lightcraftmc.fusebox.tools.ToolManager;
 import net.lightcraftmc.fusebox.util.effects.EffectManager;
 import net.lightcraftmc.fusebox.util.extra.ExtraManager;
@@ -23,6 +24,7 @@ public class Core extends JavaPlugin{
     }
     
     private void init(){
+    	PlayerManager.getInstance();
     	EffectManager.registerEvents(this);
     	ExtraManager.registerEvents(this);
 	    ParticleManager.registerEvents(this);
