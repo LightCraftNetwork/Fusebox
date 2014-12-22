@@ -41,6 +41,15 @@ public class Team {
 
         members.add(player);
 
+        Data data = new Data();
+            String name1 = data.getName();
+            ChatColor color1 = data.getColor();
+            PreventionSet set1 = data.getSet();
+
+        GameManager gameManager = new GameManager(name1, color1, set1);
+
+        //Finish
+
     }
 
     public void removeMember(Player player){

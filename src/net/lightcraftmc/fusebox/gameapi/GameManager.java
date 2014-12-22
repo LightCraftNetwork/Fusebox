@@ -2,6 +2,7 @@ package net.lightcraftmc.fusebox.gameapi;
 
 import net.lightcraftmc.fusebox.gameapi.Functionality.EndGameExecutor;
 import net.lightcraftmc.fusebox.gameapi.Functionality.StartGameExecutor;
+import net.lightcraftmc.fusebox.gameapi.Functionality.TeamExecutor;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 
@@ -37,6 +38,7 @@ public class GameManager {
 
     public StartGameExecutor startGameExecutor;
     public EndGameExecutor endGameExecutor;
+    public TeamExecutor teamExecutor;
 
     public GameManager(String name, ChatColor color, PreventionSet set){
 
@@ -166,5 +168,14 @@ public class GameManager {
 
     public void setEndGameExecutor(EndGameExecutor endGameExecutor) {
         this.endGameExecutor = endGameExecutor;
+    }
+
+
+    public TeamExecutor getTeamExecutor() {
+        return teamExecutor;
+    }
+
+    public void setTeamExecutor(TeamExecutor teamExecutor) {
+        this.teamExecutor = teamExecutor;
     }
 }

@@ -16,6 +16,8 @@ public class Data {
 
     public PreventionSet set = null;
 
+    public GameManager gameManager = null;
+
     public String getName() {
         return this.name;
     }
@@ -38,5 +40,13 @@ public class Data {
 
     public void setSet(PreventionSet set) {
         this.set = set;
+    }
+
+    public GameManager getGameManager() {
+        return gameManager;
+    }
+
+    public void setGameManager(GameManager gameManager) {
+        this.gameManager = gameManager;
     }
 }
