@@ -2,6 +2,7 @@ package net.lightcraftmc.fusebox;
 
 import net.lightcraftmc.fusebox.anticheat.AntiCheat;
 import net.lightcraftmc.fusebox.build.listener.BuildSettings;
+import net.lightcraftmc.fusebox.commands.CommandProcessor;
 import net.lightcraftmc.fusebox.commands.Commands;
 import net.lightcraftmc.fusebox.commands.ExampleCommand;
 import net.lightcraftmc.fusebox.commands.ToolCommand;
@@ -38,6 +39,8 @@ public class Core extends JavaPlugin{
 
         //Setup Commands
         setupCommands();
+        getCommand("test").setExecutor(new CommandProcessor());
+
     }
     
     public static Core getInstance(){
