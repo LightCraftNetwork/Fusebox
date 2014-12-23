@@ -11,12 +11,14 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class ForcefieldCheck {
-
+	//Ctrl + i this plz
 	public static void checkForForcefield(Player p){
 		if(p.getPassenger() != null) return;
 		Witch cow = cowExists(p.getName());
 		if(cow == null){
-			cow = p.getWorld().spawn(p.getLocation().add(0, 2.5, 0), Witch.class);
+				if(!cow.hasPotionEffect(PotionEffectType.INVISIBILITY)){
+				cow = p.getWorld().spawn(p.getLocation().add(0, 2.5, 0), Witch.class);
+				}
 			cow.setCustomName("AC | " + p.getName());
 			
 		}
@@ -29,7 +31,7 @@ public class ForcefieldCheck {
 	public static void giveWitchInvis(){
 		for(World w : Bukkit.getWorlds()) for(Entity e : w.getEntities()){
 			if(e instanceof Witch){
-				WItch wi = (Witch)e;
+				Witch wi = (Witch)e;
 				if(e.getCustomName() != null && e.getCustomName().contains("AC | ")){
 					if(!wi.hasPotionEffect(PotionEffectType.INVISIBILITY)){
 						cow.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 100, 1, true));
