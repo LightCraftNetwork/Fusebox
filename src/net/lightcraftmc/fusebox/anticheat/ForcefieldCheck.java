@@ -16,18 +16,18 @@ public class ForcefieldCheck {
 		if(p.getPassenger() != null) return;
 		Witch cow = cowExists(p.getName());
 		if(cow == null){
-				if(!cow.hasPotionEffect(PotionEffectType.INVISIBILITY)){
+			if(!cow.hasPotionEffect(PotionEffectType.INVISIBILITY)){
 				cow = p.getWorld().spawn(p.getLocation().add(0, 2.5, 0), Witch.class);
-				}
+			}
 			cow.setCustomName("AC | " + p.getName());
-			
+
 		}
 		cow.teleport(p.getLocation().add(0, 2.5, 0));
 		UtilEntity.setNoAI(cow, true);
 		cow.getEquipment().setItemInHand(null);
 		cow.setHealth(20.0D);
 	}
-	
+
 	public static void giveWitchInvis(){
 		for(World w : Bukkit.getWorlds()) for(Entity e : w.getEntities()){
 			if(e instanceof Witch){
@@ -41,7 +41,7 @@ public class ForcefieldCheck {
 			}
 		}
 	}
-	
+
 	public static Witch cowExists(String cowTag){
 		for(World w : Bukkit.getWorlds()) for(Entity e : w.getEntities()){
 			if(e instanceof Witch){
@@ -61,7 +61,7 @@ public class ForcefieldCheck {
 		}
 		return null;
 	}
-	
+
 	public static boolean hasAnApplicableOnlinePlayer(String name){
 		for(Player p : Bukkit.getOnlinePlayers()){
 			if(p.getName().equalsIgnoreCase(name)){
@@ -70,5 +70,5 @@ public class ForcefieldCheck {
 		}
 		return false;
 	}
-	
+
 }
