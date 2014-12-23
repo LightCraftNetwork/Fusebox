@@ -20,10 +20,17 @@ public class PlayerManager implements Listener{
 	
 	private PlayerManager(){
 		Bukkit.getPluginManager().registerEvents(this, Core.getInstance());
+		registerOnlinePlayers();
 	}
 	
 	public static PlayerManager getInstance(){
 		return manager;
+	}
+	
+	public void registerOnlinePlayers(){
+		for(Player player : Bukkit.getOnlinePlayers()){
+			addPlayer(player);
+		}
 	}
 	
 	private Players addPlayer(Player player){
