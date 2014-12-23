@@ -31,13 +31,15 @@ public class AntiCheat implements Listener {
 	public static void init() {
 		instance = new AntiCheat();
 		Bukkit.getServer().getPluginManager().registerEvents(instance, Core.getInstance());
-		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Core.getInstance(), new Runnable(){
+		//Every tick... So laggy plz...
+		/*Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Core.getInstance(), new Runnable(){
 			public void run(){
 				for(Player p : Bukkit.getOnlinePlayers()){
 					ForcefieldCheck.checkForForcefield(p);
 				}
 			}
 		}, 0, 1);
+		*/
 	}
 
 	public static AntiCheat getInstance(){

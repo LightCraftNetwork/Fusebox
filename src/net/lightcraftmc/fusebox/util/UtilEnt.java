@@ -6,13 +6,17 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import net.lightcraftmc.fusebox.Core;
+import net.minecraft.server.v1_8_R1.AttributeInstance;
 import net.minecraft.server.v1_8_R1.EntityArmorStand;
 import net.minecraft.server.v1_8_R1.EntityCreature;
 import net.minecraft.server.v1_8_R1.EntityInsentient;
 import net.minecraft.server.v1_8_R1.EntityItem;
+import net.minecraft.server.v1_8_R1.GenericAttributes;
 import net.minecraft.server.v1_8_R1.Navigation;
+import net.minecraft.server.v1_8_R1.PathEntity;
 import net.minecraft.server.v1_8_R1.PathfinderGoalSelector;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -23,6 +27,7 @@ import org.bukkit.craftbukkit.v1_8_R1.entity.CraftEntity;
 import org.bukkit.craftbukkit.v1_8_R1.inventory.CraftItemStack;
 import org.bukkit.entity.Bat;
 import org.bukkit.entity.Creature;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Giant;
 import org.bukkit.entity.Item;
@@ -34,6 +39,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.metadata.FixedMetadataValue;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 public class UtilEnt
@@ -398,7 +404,7 @@ implements Listener
 				return false;
 			}
 		};
-		ei.pickupDelay = 20;
+		ei.pickupDelay = 200000;
 		((CraftWorld)l.getWorld()).getHandle().addEntity(ei);
 
 		skull.setPassenger(ei.getBukkitEntity());
@@ -434,7 +440,7 @@ implements Listener
 				return false;
 			}
 		};
-		ei.pickupDelay = 20;
+		ei.pickupDelay = 200000;
 		((CraftWorld)l.getWorld()).getHandle().addEntity(eas);
 		((CraftWorld)l.getWorld()).getHandle().addEntity(ei);
 		ei.setPassengerOf(eas);
@@ -469,5 +475,31 @@ implements Listener
 			if (e.hasMetadata("nodamagetext"))
 				event.setCancelled(true);
 		}
+	}
+
+	public void setPetFollow(final Player player , final Entity pet , final double speed){
+		new BukkitRunnable(){
+			public void run(){
+				if ((!pet.isValid() || (!player.isOnline()))){
+					this.cancel();
+				}
+				net.minecraft.server.v1_8_R1.Entity pett = ((CraftEntity) pet).getHandle();
+				((EntityInsentient) pett).getNavigation().a(2);
+				Object petf = ((CraftEntity) pet).getHandle();
+				Location targetLocation = player.getLocation();
+				PathEntity path;
+				path = ((EntityInsentient) petf).getNavigation().a(targetLocation.getX() + 1, targetLocation.getY(), targetLocation.getZ() + 1);
+				if (path != null) {
+					((EntityInsentient) petf).getNavigation().a(path, 1.0D);
+					((EntityInsentient) petf).getNavigation().a(2.0D);
+				}
+				int distance = (int) Bukkit.getPlayer(player.getName()).getLocation().distance(pet.getLocation());
+				if (distance > 10 && !pet.isDead() && player.isOnGround()) {
+					pet.teleport(player.getLocation());
+				}
+				AttributeInstance attributes = ((EntityInsentient)((CraftEntity)pet).getHandle()).getAttributeInstance(GenericAttributes.d);
+				attributes.setValue(speed);
+			}
+		}.runTaskTimer(Core.getInstance(), 0L, 20L);
 	}
 }

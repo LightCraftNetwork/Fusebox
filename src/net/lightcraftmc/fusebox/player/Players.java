@@ -6,11 +6,13 @@ import net.lightcraftmc.fusebox.Core;
 import net.lightcraftmc.fusebox.configuration.Configuration;
 
 import org.bukkit.entity.Player;
+import org.bukkit.permissions.PermissionAttachment;
 
 public class Players {
 
 	private String uuid;
 	private Configuration config;
+	private PermissionAttachment permissions;
 	
 	public Players(Player player){
 		this.uuid = player.getUniqueId().toString();
@@ -27,6 +29,14 @@ public class Players {
 	
 	public Configuration getConfig(){
 		return config;
+	}
+	
+	public PermissionAttachment getPermissionAttachment(){
+		return permissions;
+	}
+	
+	public void setPermissionAttachment(PermissionAttachment pa){
+		this.permissions = pa;
 	}
 	
 }
