@@ -42,7 +42,7 @@ public class AntiCheat implements Listener {
 					if(ticks % 5 == 0){
 					ForcefieldCheck.checkForForcefield(p);	
 					}
-					//add invis check here
+					ForcefieldCheck.giveWitchInvis();
 				}
 				if(ticks % 5 == 0){
 					ticks = 0;
