@@ -9,6 +9,7 @@ import net.minecraft.server.v1_8_R1.EntityInsentient;
 import net.minecraft.server.v1_8_R1.NavigationAbstract;
 import net.minecraft.server.v1_8_R1.PathfinderGoalSelector;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -38,6 +39,17 @@ public class UtilEntity
 		return _nameMap;
 	}
 
+	public static Player getNearestPlayer(Player e){
+		double d = 0; Player $p = e;
+		for(Player p3 : Bukkit.getOnlinePlayers()){
+			if(e.getLocation().distance(p3.getLocation()) < d || d == 0){
+				d = e.getLocation().distance(p3.getLocation());
+				$p = p3;
+			}
+		}
+		return $p;
+	}
+	
 	public static void removeGoalSelectors(org.bukkit.entity.Entity entity)
 	{
 		try
