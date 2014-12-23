@@ -18,12 +18,26 @@ public class ForcefieldCheck {
 		if(cow == null){
 			cow = p.getWorld().spawn(p.getLocation().add(0, 2.5, 0), Witch.class);
 			cow.setCustomName("AC | " + p.getName());
-			cow.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 100, 1, true));
+			
 		}
 		cow.teleport(p.getLocation().add(0, 2.5, 0));
 		UtilEntity.setNoAI(cow, true);
 		cow.getEquipment().setItemInHand(null);
 		cow.setHealth(20.0D);
+	}
+	
+	public static void giveWitchInvis(){
+		for(World w : Bukkit.getWorlds()) for(Entity e : w.getEntities()){
+			if(e instanceof Witch){
+				WItch wi = (Witch)e;
+				if(e.getCustomName() != null && e.getCustomName().contains("AC | ")){
+					if(!wi.hasPotionEffect(PotionEffectType.INVISIBILITY)){
+						cow.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 100, 1, true));
+					}
+					//Only problem with this is- it may fall to the ground which kinda defeats the whole point of it
+				}
+			}
+		}
 	}
 	
 	public static Witch cowExists(String cowTag){
