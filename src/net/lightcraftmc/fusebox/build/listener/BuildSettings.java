@@ -11,15 +11,29 @@ import org.bukkit.event.block.BlockFadeEvent;
 import org.bukkit.event.block.BlockPhysicsEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.block.LeavesDecayEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 
 public class BuildSettings implements Listener {
 
 	private static ArrayList<String> allowBlockBreak = new ArrayList<String>();
 	private static boolean allowBreakCreative = true;
+	boolean disableHunger = false;
+	
+	//Excuse crappy formating/errors, on web client.
+	
 	@EventHandler
 	public void handleLeafDecay(LeavesDecayEvent e){
 		e.setCancelled(true);
 	}
+	
+	  @EventHandler
+  	public void hunger(FoodLevelChangeEvent event)
+  	{
+  		if(!disableHunger) return;
+		Player player = (Player)event.getEntity();
+		event.setCancelled(true);
+		player.setFoodLevel(20);
+	 }
 	
 	@EventHandler
 	public void handleBlockFade(BlockFadeEvent e){
@@ -78,6 +92,22 @@ public class BuildSettings implements Listener {
 	public static void revokeBlockBreak(String worldName){
 		if(allowBlockBreak.contains(worldName))
 			allowBlockBreak.remove(worldName);
+	}
+	
+	public static void disableServerHunger(){
+		disableHunger = true;
+	}
+	
+	public static void enableServerHunger(){
+		disableHunger = false;
+	}
+	
+	public static boolean isHungerEnabled(){
+		return !disableHunger;
+	}
+	
+	public static boolean isHungerDisabled(){
+		return disableHunger;
 	}
 	
 }

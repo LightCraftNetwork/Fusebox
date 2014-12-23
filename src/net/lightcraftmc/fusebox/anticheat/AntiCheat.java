@@ -27,19 +27,29 @@ public class AntiCheat implements Listener {
 	 * NOTE:
 	 * THIS CLASS IS EXTREMELY EXPERIMENTAL.
 	 */
-
+	int ticks = 0;
+	
 	public static void init() {
 		instance = new AntiCheat();
 		Bukkit.getServer().getPluginManager().registerEvents(instance, Core.getInstance());
 		//Every tick... So laggy plz...
-		/*Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Core.getInstance(), new Runnable(){
+		//I fixed some things here; ignore me if I mess anything up cause I'm doing this with the online editor at school xD
+		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Core.getInstance(), new Runnable(){
 			public void run(){
+				ticks++;
+				
 				for(Player p : Bukkit.getOnlinePlayers()){
-					ForcefieldCheck.checkForForcefield(p);
+					if(ticks % 5 == 0){
+					ForcefieldCheck.checkForForcefield(p);	
+					}
+					ForcefieldCheck.giveWitchInvis();
+				}
+				if(ticks % 5 == 0){
+					ticks = 0;
 				}
 			}
 		}, 0, 1);
-		*/
+		
 	}
 
 	public static AntiCheat getInstance(){
