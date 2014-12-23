@@ -34,7 +34,7 @@ public class ForcefieldCheck {
 				Witch wi = (Witch)e;
 				if(e.getCustomName() != null && e.getCustomName().contains("AC | ")){
 					if(!wi.hasPotionEffect(PotionEffectType.INVISIBILITY)){
-						cow.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 100, 1, true));
+						wi.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 100, 1, true));
 					}
 					//Only problem with this is- it may fall to the ground which kinda defeats the whole point of it
 				}

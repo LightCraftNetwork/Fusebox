@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.bukkit.GameMode;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -17,7 +18,7 @@ public class BuildSettings implements Listener {
 
 	private static ArrayList<String> allowBlockBreak = new ArrayList<String>();
 	private static boolean allowBreakCreative = true;
-	boolean disableHunger = false;
+	static boolean disableHunger = false;
 	
 	//Excuse crappy formating/errors, on web client.
 	

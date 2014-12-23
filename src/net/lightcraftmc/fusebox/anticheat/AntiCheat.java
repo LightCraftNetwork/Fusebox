@@ -27,7 +27,7 @@ public class AntiCheat implements Listener {
 	 * NOTE:
 	 * THIS CLASS IS EXTREMELY EXPERIMENTAL.
 	 */
-	int ticks = 0;
+	static int ticks = 0;
 	
 	public static void init() {
 		instance = new AntiCheat();
