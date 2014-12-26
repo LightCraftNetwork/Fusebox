@@ -1,6 +1,5 @@
 package net.lightcraftmc.fusebox;
 
-import net.lightcraftmc.fusebox.anticheat.AntiCheat;
 import net.lightcraftmc.fusebox.build.listener.BuildSettings;
 import net.lightcraftmc.fusebox.commands.Commands;
 import net.lightcraftmc.fusebox.commands.ExampleCommand;
@@ -33,7 +32,6 @@ public class Core extends JavaPlugin{
 	    ParticleManager.registerEvents(this);
 	    Bukkit.getServer().getPluginManager().registerEvents(new MenuListener(), this);
 	    Bukkit.getServer().getPluginManager().registerEvents(new BuildSettings(), this);
-	    AntiCheat.init();
 	    ToolManager.getInstance();
 	    ServerTickScheduler.schedule();
     	new ToolCommand("tools").register();
