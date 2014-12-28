@@ -1,4 +1,4 @@
-package com.lightcraftmc.fusebox.party;
+package net.lightcraftmc.com.fusebox.party;
 
 
 import org.bukkit.Bukkit;

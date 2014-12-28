@@ -3,12 +3,12 @@ package com.lightcraftmc.fusebox.util;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import net.lightcraftmc.com.fusebox.party.PartyCommand;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import com.lightcraftmc.fusebox.party.PartyCommand;
 
 public class LCCommand implements CommandExecutor {
 

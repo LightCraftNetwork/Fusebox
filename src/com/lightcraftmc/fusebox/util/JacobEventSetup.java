@@ -1,6 +1,6 @@
 package com.lightcraftmc.fusebox.util;
 
-import com.lightcraftmc.fusebox.party.PartyManager;
+import net.lightcraftmc.com.fusebox.party.PartyManager;
 
 
 public class JacobEventSetup {
