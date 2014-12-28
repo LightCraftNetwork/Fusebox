@@ -1,4 +1,4 @@
 name: LightCraftFusebox
-main: net.lightcraftmc.fusebox.Core
+main: com.lightcraftmc.fusebox.Core
 author: LightCraftDevs
 version: 1.0
