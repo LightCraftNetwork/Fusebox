@@ -1,4 +1,4 @@
-package net.lightcraftmc.fusebox.strings;
+package net.lightcraftmc.fusebox.util.strings;
 
 import org.bukkit.Bukkit;
 

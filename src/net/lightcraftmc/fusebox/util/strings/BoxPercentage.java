@@ -1,4 +1,4 @@
-package net.lightcraftmc.fusebox.strings;
+package net.lightcraftmc.fusebox.util.strings;
 
 public class BoxPercentage {
 	public static String generateBoxPercentage(double input){
