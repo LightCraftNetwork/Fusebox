@@ -11,6 +11,7 @@ import com.lightcraftmc.fusebox.commands.Commands;
 import com.lightcraftmc.fusebox.commands.ExampleCommand;
 import com.lightcraftmc.fusebox.commands.ToolCommand;
 import com.lightcraftmc.fusebox.event.ServerTickScheduler;
+import com.lightcraftmc.fusebox.gameapi.GameData;
 import com.lightcraftmc.fusebox.menu.MenuListener;
 import com.lightcraftmc.fusebox.player.PlayerManager;
 import com.lightcraftmc.fusebox.tools.ToolManager;
@@ -27,6 +28,11 @@ public class Core extends JavaPlugin implements PluginMessageListener{
 		main = this;
 		init();
 		setupBungee();
+		try{
+			GameData.init();
+		}catch(Exception ex){
+			System.out.println("Map Data file missing/not game server.");
+		}
 	}
 
 	private void setupBungee(){
