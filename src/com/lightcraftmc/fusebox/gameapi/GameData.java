@@ -1,8 +1,10 @@
 package com.lightcraftmc.fusebox.gameapi;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -15,11 +17,12 @@ import com.lightcraftmc.fusebox.utils.DataSet;
 public class GameData {
 
 	private static ArrayList<DataSet> mapData = new ArrayList<DataSet>();
+	private static String str = "";
 	
 	public static void init(){
 		StringWriter writer = new StringWriter();
 		try {
-			IOUtils.copy(new FileInputStream(new File(Bukkit.getWorlds().get(0).getName() + "/world-data.txt")), writer, "UTF-8");
+			IOUtils.copy(new FileInputStream(new File(Bukkit.getWorlds().get(0).getWorldFolder() + "/world-data.txt")), writer, "UTF-8");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -28,10 +31,21 @@ public class GameData {
 			e.printStackTrace();
 		}
 		String theText = writer.toString();
+		str = theText;
 		
 		for(String s : theText.split(";")){
-			DataSet d2 = new DataSet(s.split(":")[0], s.split(":")[1]);
+			DataSet d2 = new DataSet(s.split(":")[0].toLowerCase(), s.split(":")[1]);
 			mapData.add(d2);
+		}
+	}
+	
+	public static void save(){
+		try {
+			BufferedWriter writer =  new BufferedWriter (new FileWriter(Bukkit.getWorlds().get(0).getWorldFolder() + "/world-data.txt"));
+			writer.write(str);
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -42,6 +56,20 @@ public class GameData {
 			}
 		}
 		return null;
+	}
+	
+	public static String getRawData(){
+		return str;
+	}
+	
+	public static String addRawData(String s){
+		str = str + s;
+		return str;
+	}
+	
+	public static String setRawData(String s){
+		str = s;
+		return str;
 	}
 	
 }

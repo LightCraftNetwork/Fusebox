@@ -2,3 +2,6 @@ name: LightCraftFusebox
 main: com.lightcraftmc.fusebox.Core
 author: LightCraftDevs
 version: 1.0
+commands:
+     rlgamedata: 
+     datatool: 
