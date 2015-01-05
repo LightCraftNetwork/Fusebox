@@ -1,4 +1,4 @@
-package com.lightcraftmc.fusebox.gameapi;
+package com.lightcraftmc.fusebox.gamedata;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -22,7 +22,7 @@ public class GameData {
 	public static void init(){
 		StringWriter writer = new StringWriter();
 		try {
-			IOUtils.copy(new FileInputStream(new File(Bukkit.getWorlds().get(0).getWorldFolder() + "/world-data.txt")), writer, "UTF-8");
+			IOUtils.copy(new FileInputStream(new File(Bukkit.getWorlds().get(0).getWorldFolder().getPath().replace(".\\", "") + "/world-data.txt")), writer, "UTF-8");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

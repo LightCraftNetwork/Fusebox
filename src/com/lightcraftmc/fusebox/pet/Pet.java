@@ -1,5 +1,7 @@
 package com.lightcraftmc.fusebox.pet;
 
+import java.util.UUID;
+
 import org.apache.commons.lang.WordUtils;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
@@ -43,11 +45,11 @@ public class Pet implements Listener {
 				}
 			}
 		}.runTaskTimer(Core.getInstance(), 0, 1);
-		
+		Pet pet = this;
 		new BukkitRunnable() {
 			public void run() {
 				if(!stop){
-					UtilEnt.CreatureMove(en, getLocationBehind(p), 2f);
+					UtilEnt.CreatureMove(en, pet.getLocationBehind(p, 3), 2f);
 				}else{
 					this.cancel();
 				}
@@ -73,7 +75,12 @@ public class Pet implements Listener {
 		en = p.getWorld().spawnEntity(p.getLocation(), e);
 		en.setCustomName("§b" + owner.getName() + "§7's §a" + WordUtils.capitalize(e.toString().replace("_", " ").toLowerCase()));
 	}
-	private Location getLocationBehind(Player player){
+	
+	public UUID getUniqueId(){
+		return en.getUniqueId();
+	}
+	
+	public Location getLocationBehind(Player player, int distance){
 		World world = player.getWorld();
 		Location loc = player.getLocation();
 		Block behind = loc.getBlock();
@@ -88,19 +95,19 @@ public class Pet implements Listener {
 		 
 		switch (direction) {
 		    case 1:
-		        behind = world.getBlockAt(behind.getX() + 1, behind.getY(), behind.getZ());
+		        behind = world.getBlockAt(behind.getX() + distance, behind.getY(), behind.getZ());
 		        break;
 		    case 2:
-		        behind = world.getBlockAt(behind.getX(), behind.getY(), behind.getZ() + 1);
+		        behind = world.getBlockAt(behind.getX(), behind.getY(), behind.getZ() + distance);
 		        break;
 		    case 3:
-		        behind = world.getBlockAt(behind.getX() - 1, behind.getY(), behind.getZ());
+		        behind = world.getBlockAt(behind.getX() - distance, behind.getY(), behind.getZ());
 		        break;
 		    case 4:
-		        behind = world.getBlockAt(behind.getX(), behind.getY(), behind.getZ() - 1);
+		        behind = world.getBlockAt(behind.getX(), behind.getY(), behind.getZ() - distance);
 		        break;
 		    case 0:
-		        behind = world.getBlockAt(behind.getX(), behind.getY(), behind.getZ() - 1);
+		        behind = world.getBlockAt(behind.getX(), behind.getY(), behind.getZ() - distance);
 		        break;
 		    default:
 		        break;

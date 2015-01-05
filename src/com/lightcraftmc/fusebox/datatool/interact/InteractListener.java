@@ -8,7 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-import com.lightcraftmc.fusebox.gameapi.GameData;
+import com.lightcraftmc.fusebox.gamedata.GameData;
 
 public class InteractListener implements Listener {
 	
@@ -29,6 +29,8 @@ public class InteractListener implements Listener {
 		GameData.init();
 		GameData.addRawData(s3);
 		GameData.save();
+		e.setCancelled(true);
+		p.sendMessage("§7Set " + s);
 	}
 
 }
