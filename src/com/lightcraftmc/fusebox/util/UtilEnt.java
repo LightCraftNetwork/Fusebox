@@ -444,7 +444,7 @@ implements Listener
 		ei.pickupDelay = 200000;
 		((CraftWorld)l.getWorld()).getHandle().addEntity(eas);
 		((CraftWorld)l.getWorld()).getHandle().addEntity(ei);
-		ei.setPassengerOf(eas);
+		//ei.setPassengerOf(eas);
 		ei.getBukkitEntity().setMetadata("unpickable", new FixedMetadataValue(
 				Core.getInstance(), "unpickable"));
 		((ArrayList)flyingEntities.get(p)).add(eas.getBukkitEntity());

@@ -6,9 +6,8 @@ import org.bukkit.entity.Player;
 
 public class UtilServer {
 	
-	@SuppressWarnings("deprecation")
 	public static Player[] getPlayers() {
-		return getServer().getOnlinePlayers();
+		return getServer().getOnlinePlayers().toArray(new Player[getServer().getOnlinePlayers().size()]);
 	}
 	
 	public static Server getServer() {
