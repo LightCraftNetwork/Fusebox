@@ -1,11 +1,15 @@
 package com.lightcraftmc.fusebox.mysql;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+
 import org.bukkit.plugin.Plugin;
 
-import com.lightcraftmc.fusebox.configuration.Configuration;
-
-import java.sql.*;
-import java.util.logging.Level;
+import com.lightcraftmc.fusebox.commonLibs.Configuration;
 
 public class MySQL extends Database{
 

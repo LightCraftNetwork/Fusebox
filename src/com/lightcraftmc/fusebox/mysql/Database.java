@@ -1,8 +1,8 @@
 package com.lightcraftmc.fusebox.mysql;
 
-import org.bukkit.plugin.Plugin;
-
 import java.sql.Connection;
+
+import org.bukkit.plugin.Plugin;
 
 
 public abstract class Database {

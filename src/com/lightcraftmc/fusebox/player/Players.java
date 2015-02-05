@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 
 import com.lightcraftmc.fusebox.Core;
-import com.lightcraftmc.fusebox.configuration.Configuration;
+import com.lightcraftmc.fusebox.commonLibs.Configuration;
 
 public class Players {
 

@@ -1,0 +1,17 @@
+== Information on Organization and Naming of Packages and Class Files ==
+
+General Reasoning:
+	This file exists for one purpose.
+	This files purpose is to provide rules and regulation regarding the organization of classes and packages within this jar.
+	By this point, anyone reading this should have noticed that this project is remarkably unorganized.
+	(To the point that it is nearly impossible to location any files intuitively or to know that you are properly accessing another developrer's file appropriately.
+	In order to address all these issues, it should be noted that all developers (myself included) should begin to follow these rules and regulations
+	as well as take the initiative to bring any past packages and class files in-line with these rules.
+	By doing this, the project will begin to be much more organized and become MUCH easier to develop within as it will have an intuitive mode of
+	locating and utilizing all of the resources that it has availiable without the resources being limited to a single method, class, package, or other form of unnecessary container.
+
+Class Files Rules and Regulations:
+
+
+
+Package Naming and Class Storage Locations:

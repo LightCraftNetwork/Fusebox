@@ -14,10 +14,10 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import com.lightcraftmc.fusebox.Core;
+import com.lightcraftmc.fusebox.commonLibs.item.ItemTools;
+import com.lightcraftmc.fusebox.commonLibs.strings.UtilString;
 import com.lightcraftmc.fusebox.menu.Menu;
 import com.lightcraftmc.fusebox.menu.UtilMenu;
-import com.lightcraftmc.fusebox.util.item.ItemTools;
-import com.lightcraftmc.fusebox.util.strings.UtilString;
 
 public class PetList implements Listener {
 

@@ -1,11 +1,11 @@
 package com.lightcraftmc.fusebox.commands;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Copyright Elliott Olson (c) 2014. All Rights Reserved.

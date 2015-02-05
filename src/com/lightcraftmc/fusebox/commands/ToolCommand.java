@@ -4,8 +4,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import com.lightcraftmc.fusebox.util.AbstractCommand;
-
 public class ToolCommand extends AbstractCommand {
 
 	public ToolCommand(String command) {

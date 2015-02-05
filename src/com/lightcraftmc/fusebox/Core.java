@@ -9,23 +9,23 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
-import com.lightcraftmc.fusebox.build.listener.BuildSettings;
 import com.lightcraftmc.fusebox.bungeecord.BCHooks;
 import com.lightcraftmc.fusebox.commands.Commands;
 import com.lightcraftmc.fusebox.commands.ExampleCommand;
 import com.lightcraftmc.fusebox.commands.ToolCommand;
-import com.lightcraftmc.fusebox.datatool.interact.InteractListener;
-import com.lightcraftmc.fusebox.event.ServerTickScheduler;
-import com.lightcraftmc.fusebox.explosion.ExplosionListener;
-import com.lightcraftmc.fusebox.gamedata.GameData;
+import com.lightcraftmc.fusebox.commonLibs.effects.EffectManager;
+import com.lightcraftmc.fusebox.commonLibs.extra.ExtraManager;
+import com.lightcraftmc.fusebox.commonLibs.item.ItemTools;
+import com.lightcraftmc.fusebox.commonLibs.particleLib.ParticleManager;
+import com.lightcraftmc.fusebox.events.BuildSettings;
+import com.lightcraftmc.fusebox.events.ExplosionListener;
+import com.lightcraftmc.fusebox.events.InteractListener;
+import com.lightcraftmc.fusebox.events.ServerTickScheduler;
 import com.lightcraftmc.fusebox.menu.MenuListener;
+import com.lightcraftmc.fusebox.minigames.gamedata.GameData;
 import com.lightcraftmc.fusebox.pet.PetList;
 import com.lightcraftmc.fusebox.player.PlayerManager;
 import com.lightcraftmc.fusebox.tools.ToolManager;
-import com.lightcraftmc.fusebox.util.effects.EffectManager;
-import com.lightcraftmc.fusebox.util.extra.ExtraManager;
-import com.lightcraftmc.fusebox.util.item.ItemTools;
-import com.lightcraftmc.fusebox.util.particle.ParticleManager;
 
 public class Core extends JavaPlugin implements PluginMessageListener{
 

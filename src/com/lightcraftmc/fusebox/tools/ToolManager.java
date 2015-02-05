@@ -19,6 +19,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import com.lightcraftmc.fusebox.Core;
+import com.lightcraftmc.fusebox.tools.areaSelectionTool.SelectionTool;
 
 public class ToolManager implements Listener{
 

@@ -15,7 +15,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import com.lightcraftmc.fusebox.Core;
-import com.lightcraftmc.fusebox.util.UtilEnt;
+import com.lightcraftmc.fusebox.commonLibs.utilities.UtilEnt;
 
 public class Pet implements Listener {
 	EntityType e;
